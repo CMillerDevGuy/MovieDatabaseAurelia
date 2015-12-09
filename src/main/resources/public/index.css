@@ -1,0 +1,16 @@
+body {
+	background-image : url("http://cache2.asset-cache.net/xd/472735355.jpg?v=1&c=IWSAsset&k=2&d=62CA815BFB1CE480104E432E70434DB5D1DB44E5599D888A4590CBB7AD87DF07B3512E75441D9C3B");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+@font-face {
+    font-family: Badaboom BB;
+    src: url(BADABB__.TTF);
+}
+.superhero_head{
+	font-family: Badaboom BB;
+    font-size: 20px;
+}
+input{
+	max-width: 300px;
+}

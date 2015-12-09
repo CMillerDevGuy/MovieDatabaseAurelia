@@ -1,0 +1,21 @@
+<input type="text" ng-model="superhero.superheroName" class="form-control input" placeholder="Enter superhero name" autofocus />
+
+<input type="text" ng-model="superhero.realName" class="form-control input" placeholder="Enter real name" autofocus />
+
+<input type="text" ng-model="superhero.costumeImage" class="form-control input" placeholder="Enter costume URL" autofocus />
+
+<div ng-dropdown-multiselect="" options="origins" selected-model="origin" extra-settings="originSettings" ng-hide="show"></div>
+
+<input type="text" ng-model="origin.origin" class="form-control input" placeholder="Enter origin" autofocus ng-show="show"/>
+
+<button ng-click="changeBoolean()" ng-hide="show">Add new origin</button>
+
+<button ng-click="changeBoolean()" ng-show="show">Add existing origin</button>
+
+<div ng-dropdown-multiselect="" options="powers" selected-model="powersArray" extra-settings="powerSettings"></div>
+
+<input type="text" ng-model="superhero.height" class="form-control input" placeholder="Enter height ex(5'10&quot;)" autofocus />
+
+<input type="text" ng-model="superhero.weight" class="form-control input" placeholder="Enter weight" autofocus />
+
+<button ng-click="addSuperhero(superhero, origin, powers)">Add Superhero</button>
