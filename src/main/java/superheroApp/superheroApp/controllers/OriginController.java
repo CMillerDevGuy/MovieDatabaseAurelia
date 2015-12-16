@@ -11,17 +11,17 @@ import superheroApp.superheroApp.entities.Origin;
 import superheroApp.superheroApp.services.OriginService;
 
 @RestController
-public class OriginController{
+public class OriginController {
 	@Autowired
 	OriginService originService;
-	
-	@RequestMapping(value = "/origin", method=RequestMethod.GET)
-	public List<Origin> getAllOrigin(){
+
+	@RequestMapping(value = "/origin", method = RequestMethod.GET)
+	public List<Origin> getAllOrigin() {
 		return originService.getAllOrigin();
 	}
-	
-	@RequestMapping(value = "/origin", method=RequestMethod.POST)
-	public void addOrigin(@RequestBody Origin origin){
+
+	@RequestMapping(value = "/origin", method = RequestMethod.POST)
+	public void addOrigin(@RequestBody Origin origin) {
 		originService.addOrigin(origin);
 	}
 }

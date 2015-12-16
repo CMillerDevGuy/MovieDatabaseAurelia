@@ -10,33 +10,31 @@ import org.springframework.web.bind.annotation.RestController;
 
 import superheroApp.superheroApp.entities.Power;
 import superheroApp.superheroApp.services.PowerService;
-import superheroApp.superheroApp.servicesImpl.PowerServiceImpl.PowerException;
-
+import superheroApp.superheroApp.validation.PowerValidation.PowerException;
 
 @RestController
 public class PowerController {
-	
+
 	@Autowired
 	PowerService powerService;
-	
-	
-	@RequestMapping(value="/power", method=RequestMethod.GET) 
-	public List<Power> getAllPowers() {  
+
+	@RequestMapping(value = "/power", method = RequestMethod.GET)
+	public List<Power> getAllPowers() {
 		return powerService.getAllPowers();
 	}
-	
-	@RequestMapping(value="/power", method=RequestMethod.POST)
-	public void addPower(@RequestBody Power power) throws Exception{
-		try{
+
+	@RequestMapping(value = "/power", method = RequestMethod.POST)
+	public void addPower(@RequestBody Power power) throws Exception {
+		try {
 			powerService.addPower(power);
-		}catch(PowerException e){
+		} catch (PowerException e) {
 			throw new Exception(e.getMessage());
 		}
 	}
-	
-	@RequestMapping(value="/power", method=RequestMethod.PUT)
-	public void updatePower(/*@PathVariable Integer id,*/ @RequestBody Power power){
-		//power.setPowersId(id);
+
+	@RequestMapping(value = "/power", method = RequestMethod.PUT)
+	public void updatePower(/* @PathVariable Integer id, */ @RequestBody Power power) {
+		// power.setPowersId(id);
 		powerService.updatePower(power);
 	}
 }

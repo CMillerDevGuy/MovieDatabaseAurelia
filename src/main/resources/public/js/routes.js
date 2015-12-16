@@ -1,26 +1,31 @@
 'use strict';
 
 angular.module('mainModule').config(['$stateProvider','$urlRouterProvider', function($stateProvider, $urlRouterProvider){
-    $urlRouterProvider.otherwise('/viewTeam');
+    $urlRouterProvider.otherwise('/viewTeamList');
     
-    $stateProvider.state('powerAdd',{
-        url: '/powerAdd',
-        templateUrl: 'templates/powerAdd.tpl.html',
-        controller: 'powerCtrl'
-    })
-    .state('superheroAdd',{
-        url: '/superheroAdd',
-        templateUrl: 'templates/superheroAdd.tpl.html',
-        controller: 'superheroCtrl'
-    })
-    .state('teamAdd',{
-        url: '/teamAdd',
-        templateUrl: 'templates/teamAdd.tpl.html',
-        controller: 'teamCtrl'
-    })
-    .state('viewTeam',{
-        url: '/viewTeam',
+    $stateProvider.state('viewTeam',{
+        url: '/singleTeam/{id}',
         templateUrl: 'templates/view.tpl.html',
+        controller: 'viewTeamCtrl',
+        resolve: {
+            teamInfo: function($stateParams, teamFactory){
+                return teamFactory.getTeamById($stateParams.id);
+            }
+        }
+    })
+    .state('viewSuperhero',{
+        url: '/singleSuperhero/{id}',
+        templateUrl: 'templates/viewSuperhero.tpl.html',
+        controller : 'singleSuperheroViewCtrl',
+        resolve: {
+            superheroInfo: function($stateParams, superheroFactory){
+                return superheroFactory.getSuperheroById($stateParams.id);
+            }
+        }
+    })
+    .state('viewTeamList',{
+        url: '/viewTeamList',
+        templateUrl: 'templates/teamList.tpl.html',
         controller: 'mainCtrl'
     })
 }])

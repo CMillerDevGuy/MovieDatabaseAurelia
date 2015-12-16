@@ -16,21 +16,22 @@ import superheroApp.superheroApp.entities.Superhero;
 public class SuperheroDaoImpl implements SuperheroDao {
 	@PersistenceContext
 	private EntityManager em;
-	
-	//sets up EntityManager for general hibernate functionality
-	public void setEm(EntityManager em) 
-	{
+
+	// sets up EntityManager for general hibernate functionality
+	public void setEm(EntityManager em) {
 		this.em = em;
 	}
 
-	
 	public List<Superhero> getAllSuperheroes() {
-		return em.createQuery("SELECT e FROM Superhero e", Superhero.class).
-				getResultList();
+		return em.createQuery("SELECT e FROM Superhero e", Superhero.class).getResultList();
 	}
 
-	
 	public void addNewSuperhero(Superhero superhero) {
-			em.merge(superhero);
+		em.merge(superhero);
+	}
+
+	public Superhero getSuperheroById(Integer id) {
+		return em.createQuery("SELECT s FROM Superhero s WHERE s.superheroId = :superheroId", Superhero.class)
+				.setParameter("superheroId", id).getSingleResult();
 	}
 }

@@ -16,9 +16,8 @@ import superheroApp.superheroApp.entities.PublicSupport;
 public class PublicSupportDaoImpl implements PublicSupportDao {
 	@PersistenceContext
 	private EntityManager em;
-	
-	public void setEm(EntityManager em) 
-	{
+
+	public void setEm(EntityManager em) {
 		this.em = em;
 	}
 

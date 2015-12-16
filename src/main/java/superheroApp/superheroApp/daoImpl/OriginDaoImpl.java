@@ -13,13 +13,12 @@ import superheroApp.superheroApp.entities.Origin;
 
 @Repository
 @Transactional
-public class OriginDaoImpl implements OriginDao{
+public class OriginDaoImpl implements OriginDao {
 	@PersistenceContext
 	private EntityManager em;
-	
-	//sets up EntityManager for general hibernate functionality
-	public void setEm(EntityManager em) 
-	{
+
+	// sets up EntityManager for general hibernate functionality
+	public void setEm(EntityManager em) {
 		this.em = em;
 	}
 

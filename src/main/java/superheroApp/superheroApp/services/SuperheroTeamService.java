@@ -3,8 +3,7 @@ package superheroApp.superheroApp.services;
 import java.util.List;
 
 import superheroApp.superheroApp.entities.SuperheroTeam;
-import superheroApp.superheroApp.servicesImpl.SuperheroTeamServiceImpl.SuperheroTeamException;
-
+import superheroApp.superheroApp.validation.SuperheroTeamValidation.SuperheroTeamException;
 
 public interface SuperheroTeamService {
 
@@ -15,5 +14,7 @@ public interface SuperheroTeamService {
 	void updateSuperheroTeam(SuperheroTeam superheroTeam);
 
 	void deleteSuperheroTeam(SuperheroTeam superheroTeam);
+
+	SuperheroTeam getTeamById(Integer teamId);
 
 }

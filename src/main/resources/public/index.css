@@ -1,5 +1,6 @@
 body {
-	background-image : url("http://cache2.asset-cache.net/xd/472735355.jpg?v=1&c=IWSAsset&k=2&d=62CA815BFB1CE480104E432E70434DB5D1DB44E5599D888A4590CBB7AD87DF07B3512E75441D9C3B");
+	/*background-image : url("http://cache2.asset-cache.net/xd/472735355.jpg?v=1&c=IWSAsset&k=2&d=62CA815BFB1CE480104E432E70434DB5D1DB44E5599D888A4590CBB7AD87DF07B3512E75441D9C3B");*/
+	background-image: url("http://storagetopia.imation.com/Content/Images/MandE/city-background-tablet.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
 }
@@ -11,6 +12,19 @@ body {
 	font-family: Badaboom BB;
     font-size: 20px;
 }
-input{
+/*input{
 	max-width: 300px;
+}*/
+.center{
+	margin-left:40%;
+	margin-right:40%;
+	margin-top: 30px;
+	padding:10px;
+	/*border:solid;
+	border-radius: 10px;
+    background-color: cyan;*/
 }
+/*.power_spacing{
+	margin-bottom:10px;
+}*/)
+

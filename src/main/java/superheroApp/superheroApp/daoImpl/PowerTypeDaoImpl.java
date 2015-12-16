@@ -11,16 +11,14 @@ import org.springframework.stereotype.Repository;
 import superheroApp.superheroApp.daos.PowerTypeDao;
 import superheroApp.superheroApp.entities.PowerType;
 
-
 @Repository
 @Transactional
-public class PowerTypeDaoImpl implements PowerTypeDao{
+public class PowerTypeDaoImpl implements PowerTypeDao {
 	@PersistenceContext
 	private EntityManager em;
-	
-	//sets up EntityManager for general hibernate functionality
-	public void setEm(EntityManager em) 
-	{
+
+	// sets up EntityManager for general hibernate functionality
+	public void setEm(EntityManager em) {
 		this.em = em;
 	}
 

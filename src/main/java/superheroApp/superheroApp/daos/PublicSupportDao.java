@@ -11,4 +11,3 @@ public interface PublicSupportDao {
 	void addPublicSupport(PublicSupport publicSupport);
 
 }
-

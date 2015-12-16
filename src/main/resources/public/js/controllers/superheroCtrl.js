@@ -1,10 +1,20 @@
-angular.module('mainModule').controller('superheroCtrl',['$scope', 'superheroFactory', 'powerFactory', 'originFactory', function($scope, superheroFactory, powerFactory, originFactory){
+angular.module('mainModule').controller('superheroCtrl',['$scope', 'superheroFactory', 'powerFactory', 'originFactory', '$uibModal', function($scope, superheroFactory, powerFactory, originFactory, $uibModal){
     
+    //$scope variables
     $scope.superhero = {};
     $scope.origin = {};
     $scope.powersArray = [];
     $scope.show = false;
     
+    
+    
+    //Multi-select/Dropdown settings
+    $scope.originSettings = {externalIdProp: '', displayProp: 'origin', idProp: 'id', smartButtonMaxItems: 1, selectionLimit: 1};
+    
+    $scope.powerSettings = {externalIdProp: '', displayProp: 'powerName', idProp: 'id', smartButtonMaxItems: 3};
+    
+    
+    //Populate the dropdowns and multiselects
     $scope.getPowers = powerFactory.getPower().then(
         function(success){
             $scope.powers = success.data;
@@ -23,10 +33,8 @@ angular.module('mainModule').controller('superheroCtrl',['$scope', 'superheroFac
         }
     )
     
-    $scope.originSettings = {externalIdProp: '', displayProp: 'origin', idProp: 'id', smartButtonMaxItems: 1, selectionLimit: 1};
     
-    $scope.powerSettings = {externalIdProp: '', displayProp: 'powerName', idProp: 'id', smartButtonMaxItems: 3};
-    
+    //On click functions
     $scope.changeBoolean = function(){
     	if($scope.show == true){
     		$scope.show = false;
@@ -40,15 +48,14 @@ angular.module('mainModule').controller('superheroCtrl',['$scope', 'superheroFac
         superhero.powers = powers;
         superhero.origin = origin;
         
-
         superheroFactory.addSuperhero(superhero).then(
-                function(success) {
-                    $scope.postResult = success;
-                },
-                function(error){
-                    console.log(error);
-                    $scope.postResult = error;
-                }
-            );
+            function(success) {
+                $scope.postResult = success;
+                $uibModalInstance.close();
+            },
+            function(error){
+                $scope.postResult = error;
+            }
+        );
     }
 }])

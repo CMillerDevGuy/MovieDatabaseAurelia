@@ -9,9 +9,8 @@ import superheroApp.superheroApp.daos.OriginDao;
 import superheroApp.superheroApp.entities.Origin;
 import superheroApp.superheroApp.services.OriginService;
 
-
 @Service
-public class OriginServiceImpl implements OriginService{
+public class OriginServiceImpl implements OriginService {
 	@Autowired
 	OriginDao originDao;
 
