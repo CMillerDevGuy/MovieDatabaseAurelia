@@ -1,2 +1,11 @@
-<div ng-dropdown-multiselect="" options="result" selected-model="example9model" extra-settings="example9settings"></div>
-<div>{{example9model}}</div>
+<div>{{singleTeam.teamName}}</div>
+<div>{{singleTeam.headquarters}}</div>
+<div>{{singleTeam.publicSupport.publicSupport}}</div>
+<div>{{singleTeam.teamLead.superheroName}}</div>
+<div ng-repeat="superhero in singleTeam.superheros">
+	<div><a ui-sref="viewSuperhero({id:superhero.superheroId})">{{superhero.superheroName}}</a></div>
+</div>
+
+
+<button><a ng-click="goBack()">Back</a></button>
+

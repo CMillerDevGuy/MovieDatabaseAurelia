@@ -4,7 +4,6 @@ import java.util.List;
 
 import superheroApp.superheroApp.entities.SuperheroTeam;
 
-
 public interface SuperheroTeamDao {
 
 	List<SuperheroTeam> getAllSuperherTeams();
@@ -14,5 +13,7 @@ public interface SuperheroTeamDao {
 	void updateSuperheroTeam(SuperheroTeam superheroTeam);
 
 	void deleteSuperheroTeam(SuperheroTeam superheroTeam);
+
+	SuperheroTeam getTeamById(Integer teamId);
 
 }

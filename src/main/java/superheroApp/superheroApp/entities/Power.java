@@ -24,8 +24,8 @@ public class Power {
 	private String powerName;
 
 	@NotNull
-	@ManyToOne (cascade = CascadeType.MERGE)
-	@JoinColumn(name= "powerType_Id")
+	@ManyToOne(cascade = CascadeType.MERGE)
+	@JoinColumn(name = "powerType_Id")
 	private PowerType powerType;
 
 	@NotNull

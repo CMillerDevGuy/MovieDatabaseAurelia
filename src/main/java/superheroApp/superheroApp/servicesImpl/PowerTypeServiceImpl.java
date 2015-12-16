@@ -9,10 +9,8 @@ import superheroApp.superheroApp.daos.PowerTypeDao;
 import superheroApp.superheroApp.entities.PowerType;
 import superheroApp.superheroApp.services.PowerTypeService;
 
-
-
 @Service
-public class PowerTypeServiceImpl implements PowerTypeService{
+public class PowerTypeServiceImpl implements PowerTypeService {
 	@Autowired
 	PowerTypeDao powerTypeDao;
 

@@ -10,6 +10,6 @@ public interface SuperheroDao {
 
 	void addNewSuperhero(Superhero superhero);
 
+	Superhero getSuperheroById(Integer id);
+
 }
-
-

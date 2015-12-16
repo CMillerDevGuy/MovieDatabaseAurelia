@@ -16,7 +16,6 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 
-
 @Entity
 @Table(name = "SuperheroTeam", schema = "public")
 public class SuperheroTeam {
@@ -24,7 +23,7 @@ public class SuperheroTeam {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer teamId;
-	
+
 	@NotNull
 	private String teamName;
 
@@ -32,11 +31,10 @@ public class SuperheroTeam {
 	@Length(max = 250)
 	private String headquarters;
 
-	@ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+	@ManyToOne(cascade = { CascadeType.MERGE, CascadeType.PERSIST })
 	@JoinColumn(name = "publicSupport_id")
 	private PublicSupport publicSupport;
-	
-	
+
 	@OneToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "teamlead_id")
 	private Superhero teamLead;
@@ -82,6 +80,7 @@ public class SuperheroTeam {
 	}
 
 	public void setTeamLead(Superhero teamLead) {
+		teamLead.setTeamLead(true);
 		this.teamLead = teamLead;
 	}
 
@@ -90,8 +89,10 @@ public class SuperheroTeam {
 	}
 
 	public void setSuperheros(List<Superhero> superheros) {
+		for(Superhero s : superheros){
+			s.setOnTeam(true);
+		}
 		this.superheros = superheros;
 	}
-	
-	
+
 }

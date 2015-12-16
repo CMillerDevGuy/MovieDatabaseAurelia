@@ -2,12 +2,18 @@
 
 <input type="text" ng-model="team.headquarters" class="form-control input" placeholder="Enter headquarters" autofocus />
 
-<input type="text" ng-model="team.publicSupport.publicSupport" class="form-control input" placeholder="Enter public support" autofocus />
+<div ng-dropdown-multiselect="" options="publicSupports" selected-model="publicSupport" extra-settings="publicSupportSettings" ng-hide="show"></div>
 
-<input type="text" ng-model="team.teamLead.superheroName" class="form-control input" placeholder="Enter team lead" autofocus />
+<input type="text" ng-model="publicSupport.publicSupport" class="form-control input" placeholder="Enter public support" autofocus ng-show="show"/>
 
-<input type="text" ng-model="team.superheroName.supeheroName" class="form-control input" placeholder="Enter superhero" autofocus />
+<button ng-click="changeBoolean()" ng-hide="show">Add new public support</button>
 
-<button ng-click="addTeam(team)">Add Superhero Team</button>
+<button ng-click="changeBoolean()" ng-show="show">Add existing public support</button>
+
+<div ng-dropdown-multiselect="" options="teamLeadArray" selected-model="teamLead" extra-settings="teamLeadSettings"></div>
+
+<div ng-dropdown-multiselect="" options="onTeamArray" selected-model="superheroes" extra-settings="superheroSettings"></div>
+
+<button ng-click="addTeam(team, publicSupport, teamLead, superheroes)">Add Superhero Team</button>
 
 <!--teamName, headquarters, publicSupport, teamLead, superheroName-->

@@ -9,9 +9,8 @@ import superheroApp.superheroApp.daos.PublicSupportDao;
 import superheroApp.superheroApp.entities.PublicSupport;
 import superheroApp.superheroApp.services.PublicSupportService;
 
-
 @Service
-public class PublicSupportServiceImpl implements PublicSupportService{
+public class PublicSupportServiceImpl implements PublicSupportService {
 	@Autowired
 	PublicSupportDao publicSupportDao;
 
@@ -20,7 +19,7 @@ public class PublicSupportServiceImpl implements PublicSupportService{
 	}
 
 	public boolean addPublicSupport(PublicSupport publicSupport) {
- 		publicSupportDao.addPublicSupport(publicSupport);
+		publicSupportDao.addPublicSupport(publicSupport);
 		return true;
 	}
 }

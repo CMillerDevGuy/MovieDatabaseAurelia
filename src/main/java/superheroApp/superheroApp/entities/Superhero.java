@@ -17,7 +17,6 @@ import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.Length;
 
-
 @Entity
 @Table(name = "Superheroes", schema = "public")
 public class Superhero {
@@ -26,35 +25,47 @@ public class Superhero {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer superheroId;
 
-	
 	@Length(max = 250)
 	@Column(name = "superheroName", unique = true)
 	private String superheroName;
 
-	
 	@Length(max = 250)
 	private String realName;
 
-	
 	@ManyToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "origin_id")
 	private Origin origin;
 
-	
 	private String costumeImage;
 
-	
 	private String height;
 
-	
-	private String weight;
+	private int weight;
 
-	
 	@ManyToMany(cascade = CascadeType.MERGE)
-	@JoinTable(name = "public.superhero_powers", joinColumns = {@JoinColumn(name = "superhero_id")},
-	inverseJoinColumns = {@JoinColumn(name = "power_id")})
+	@JoinTable(name = "public.superhero_powers", joinColumns = {
+			@JoinColumn(name = "superhero_id") }, inverseJoinColumns = { @JoinColumn(name = "power_id") })
 	private Set<Power> powers = new HashSet<Power>();
+
+	private boolean teamLead = false;
 	
+	private boolean onTeam = false;
+
+	public boolean isOnTeam() {
+		return onTeam;
+	}
+
+	public void setOnTeam(boolean onTeam) {
+		this.onTeam = onTeam;
+	}
+
+	public boolean isTeamLead() {
+		return teamLead;
+	}
+
+	public void setTeamLead(boolean teamLead) {
+		this.teamLead = teamLead;
+	}
 
 	public Integer getSuperheroId() {
 		return superheroId;
@@ -112,12 +123,18 @@ public class Superhero {
 		this.height = height;
 	}
 
-	public String getWeight() {
+	public int getWeight() {
 		return weight;
 	}
 
-	public void setWeight(String weight) {
+	public void setWeight(int weight) {
 		this.weight = weight;
 	}
+
+	/*
+	 * public String getWeight() { return weight; }
+	 * 
+	 * public void setWeight(String weight) { this.weight = weight; }
+	 */
 
 }

@@ -16,6 +16,6 @@
 
 <input type="text" ng-model="superhero.height" class="form-control input" placeholder="Enter height ex(5'10&quot;)" autofocus />
 
-<input type="text" ng-model="superhero.weight" class="form-control input" placeholder="Enter weight" autofocus />
+<input type="number" max="999" ng-model="superhero.weight" class="form-control input" placeholder="Enter weight" autofocus />
 
 <button ng-click="addSuperhero(superhero, origin, powers)">Add Superhero</button>

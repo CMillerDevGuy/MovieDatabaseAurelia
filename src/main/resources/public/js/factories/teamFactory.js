@@ -5,6 +5,9 @@ angular.module('mainModule').factory('teamFactory', ['$http', function($http){
         },
         getTeams : function(){
             return $http.get("/superheroTeam");
+        },
+        getTeamById : function(teamId){
+            return $http.get("/superheroTeam/"+teamId)
         }
     }
 }])

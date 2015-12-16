@@ -7,12 +7,12 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="PowerType", schema="Public")
+@Table(name = "PowerType", schema = "Public")
 public class PowerType {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
+
 	private String powerType;
 
 	public Integer getId() {
@@ -30,6 +30,5 @@ public class PowerType {
 	public void setPowerType(String powerType) {
 		this.powerType = powerType;
 	}
-	
 
 }

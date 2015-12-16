@@ -7,12 +7,12 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Origin", schema="Public")
+@Table(name = "Origin", schema = "Public")
 public class Origin {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
+
 	private String origin;
 
 	public Integer getId() {
@@ -30,7 +30,5 @@ public class Origin {
 	public void setOrigin(String origin) {
 		this.origin = origin;
 	}
-	
 
 }
-

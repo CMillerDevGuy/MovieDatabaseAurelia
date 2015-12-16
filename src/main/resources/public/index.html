@@ -4,12 +4,16 @@
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
             <link rel="stylesheet" href="index.css">
             <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
-<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>            <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>            
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
             <script src="js/angularjs-dropdown-multiselect.js"></script>
+            <script src="js/ui-bootstrap-tpls-0.14.3.min.js"></script>
             <!--<link rel="stylesheet" type="text/css" href="angular-toastr.css" />
             <script type="text/javascript" src="angular-toastr.tpls.js"></script>-->
             <script src="js/app.js"></script>
             <script src="js/routes.js"></script>
+            <script src="js/factories/publicSupportFactory.js"></script>
+            <script src="js/controllers/viewTeamCtrl.js"></script>
             <script src="js/controllers/mainCtrl.js"></script>
             <script src="js/controllers/powerCtrl.js"></script>
             <script src="js/controllers/superheroCtrl.js"></script>
@@ -19,10 +23,13 @@
             <script src="js/factories/teamFactory.js"></script>
             <script src="js/factories/powerTypeFactory.js"></script>
             <script src="js/factories/originFactory.js"></script>
+            <script src="js/controllers/singleSuperheroView.js"></script>
+            <script src="js/controllers/openModalCtrl.js"></script>
 
         </head>
         <body>
             <div id="angular" ng-app="mainModule">
+                <div ng-controller = "openModalCtrl">
                 <nav class="navbar navbar-inverse">
                     <div class="container-fluid">
                         <div class="navbar-header">
@@ -32,18 +39,19 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                             </button>
-                            <a class="navbar-brand navbar-nav-right superhero_head" ui-sref="viewTeam">Superhero Team Tracker</a>
+                            <a class="navbar-brand navbar-nav-right superhero_head" ui-sref="viewTeamList">Superhero Team Tracker</a>
                         </div>
 
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul class="nav navbar-nav">
-                                <li><a class = "nav-bar-option superhero_head" ui-sref="powerAdd">Add Power</a></li>
-                                <li><a class = "nav-bar-option superhero_head" ui-sref="superheroAdd">Add Superhero</a></li>
-                                <li><a class = "nav-bar-option superhero_head" ui-sref="teamAdd">Add Superhero Team</a></li>
+                                <li><a class = "nav-bar-option superhero_head" ng-click="openPowerAdd()">Add Power</a></li>
+                                <li><a class = "nav-bar-option superhero_head" ng-click="openSuperheroAdd()">Add Superhero</a></li>
+                                <li><a class = "nav-bar-option superhero_head" ng-click="openSuperheroTeamAdd()">Add Superhero Team</a></li>
                             </ul>
                         </div>
                     </div>
                 </nav>
+                </div>
                 <ui-view></ui-view>
 
             </div>

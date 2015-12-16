@@ -1,0 +1,12 @@
+<div>{{superhero.superheroName}}</div>
+<div>{{superhero.realName}}</div>
+<div>{{superhero.origin.origin}}</div>
+<img ng-src="{{superhero.costumeImage}}">
+<div>{{superhero.height}}</div>
+<div>{{superhero.weight}}</div>
+<div ng-repeat="power in superhero.powers">
+	<div>{{power.powerName}}</div>
+</div>
+
+
+<button><a ng-click="goBack()">Back</a></button>
