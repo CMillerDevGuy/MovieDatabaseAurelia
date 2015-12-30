@@ -11,9 +11,14 @@ angular.module('mainModule').controller('viewPowerCtrl', ['$scope', 'powerFactor
 	$scope.powerData();
 	
 	$scope.model = function(){
+		$scope.array = [];
+		for(var i = 0; i < $scope.powerTypes.length; i++){
+			$scope.array.push($scope.powerTypes[i]);
+		}
+		//$scope.array.push($scope.power.powerType);
 		$scope.powerNameModel = $scope.power.powerName;
 		$scope.powerDescriptionModel = $scope.power.powerDescription;
-		$scope.powerType = $scope.power.powerType;
+		$scope.powerTypeModel = $scope.array;
 	}
 	
 	//$scope.updatedPower = {};
@@ -37,9 +42,9 @@ angular.module('mainModule').controller('viewPowerCtrl', ['$scope', 'powerFactor
 		
 	}
 	
-    $scope.powerType = {}; 
+    $scope.powerTypeModel = {}; 
 	//Multi-select/Dropdown settings
-    $scope.powerTypeSettings = {externalIdProp: '', displayProp: 'powerType', idProp: 'id', smartButtonMaxItems: 1, selectionLimit: 1};
+    $scope.powerTypeSettings = {externalIdProp: '', displayProp: 'powerType', idProp: 'id', smartButtonMaxItems: 1, selectionLimit: 3};
     
     
     //Populate the dropdowns and multiselects

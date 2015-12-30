@@ -1,2 +1,8 @@
 INSERT INTO power_type (powerType) VALUES ('physical')
 INSERT INTO powers (powerName, powertype_Id, powerDescription) VALUES ('Strength', '1', 'Super Strong')
+INSERT INTO origin (origin) VALUES ('origin1')
+INSERT INTO superheroes (superheroName, realName, origin_id, costumeImage, height, weight, teamLead, onTeam) VALUES ('batman','brent', '1', 'costume', '5', '345', false, false) 
+INSERT INTO superheroes (superheroName, realName, origin_id, costumeImage, height, weight, teamLead, onTeam) VALUES ('superman','brent', '1', 'costume', '5', '345', false, false)
+INSERT INTO superheroes (superheroName, realName, origin_id, costumeImage, height, weight, teamLead, onTeam) VALUES ('mudman','brent', '1', 'costume', '5', '345', false, false)
+INSERT INTO superheroes (superheroName, realName, origin_id, costumeImage, height, weight, teamLead, onTeam) VALUES ('catwoman','brent', '1', 'costume', '5', '345', false, false)
+INSERT INTO superheroes (superheroName, realName, origin_id, costumeImage, height, weight, teamLead, onTeam) VALUES ('barney','brent', '1', 'costume', '5', '345', false, false)

@@ -11,7 +11,7 @@ public interface SuperheroTeamService {
 
 	void addNewSuperheroTeam(SuperheroTeam superheroTeam) throws SuperheroTeamException;
 
-	void updateSuperheroTeam(SuperheroTeam superheroTeam);
+	void updateSuperheroTeam(SuperheroTeam superheroTeam) throws SuperheroTeamException;
 
 	void deleteSuperheroTeam(Integer teamId);
 

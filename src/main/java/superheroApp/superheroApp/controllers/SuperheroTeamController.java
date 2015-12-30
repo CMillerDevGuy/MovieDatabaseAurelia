@@ -38,7 +38,7 @@ public class SuperheroTeamController {
 	}
 
 	@RequestMapping(value = "/superheroTeam", method = RequestMethod.PUT)
-	public void updateSuperheroTeam(@RequestBody SuperheroTeam superheroTeam) {
+	public void updateSuperheroTeam(@RequestBody SuperheroTeam superheroTeam) throws SuperheroTeamException {
 		superheroTeamService.updateSuperheroTeam(superheroTeam);
 	}
 

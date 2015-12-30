@@ -35,11 +35,11 @@ public class SuperheroTeam {
 	@JoinColumn(name = "publicSupport_id")
 	private PublicSupport publicSupport;
 
-	@OneToOne(cascade = CascadeType.MERGE)
+	@OneToOne//(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "teamlead_id")
 	private Superhero teamLead;
 
-	@OneToMany(cascade = CascadeType.MERGE)
+	@OneToMany//(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "superhero_id")
 	private List<Superhero> superheros;
 

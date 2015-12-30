@@ -42,7 +42,7 @@ public class Superhero {
 
 	private int weight;
 
-	@ManyToMany(cascade = CascadeType.MERGE)
+	@ManyToMany//(cascade = CascadeType.MERGE)
 	@JoinTable(name = "public.superhero_powers", joinColumns = {
 			@JoinColumn(name = "superhero_id") }, inverseJoinColumns = { @JoinColumn(name = "power_id") })
 	private Set<Power> powers = new HashSet<Power>();

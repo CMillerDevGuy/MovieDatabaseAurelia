@@ -42,6 +42,16 @@ public class SuperheroTeamDaoImpl implements SuperheroTeamDao {
 	}
 
 	public void updateSuperheroTeam(SuperheroTeam superheroTeam) {
+		SuperheroTeam oldTeam = getTeamById(superheroTeam.getTeamId());
+		for(Superhero s : oldTeam.getSuperheros()){
+			s.setOnTeam(false);
+			superheroDao.updateSuperhero(s);
+		}
+		Superhero oldTeamLead = oldTeam.getTeamLead();
+		oldTeamLead.setOnTeam(false);
+		oldTeamLead.setTeamLead(false);
+		superheroDao.updateSuperhero(oldTeamLead);
+		
 		em.merge(superheroTeam);
 	}
 

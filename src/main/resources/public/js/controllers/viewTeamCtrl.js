@@ -1,4 +1,4 @@
-angular.module('mainModule').controller('viewTeamCtrl',['$scope', 'teamInfo','teamFactory','$window', function($scope, teamInfo, teamFactory, $window){
+angular.module('mainModule').controller('viewTeamCtrl',['$scope', 'teamInfo','teamFactory','$window','$uibModal', function($scope, teamInfo, teamFactory, $window, $uibModal){
     
         $scope.singleTeam = teamInfo.data;
         
@@ -16,7 +16,19 @@ angular.module('mainModule').controller('viewTeamCtrl',['$scope', 'teamInfo','te
         				console.log(error);
         			}
         	)
-        	
+        }
+        $scope.openEditModal = function(teamId){
+            
+            var teamEditModalInstance = $uibModal.open({
+                animation: true,
+                templateUrl: 'templates/teamEdit.tpl.html',
+                controller: 'teamEditCtrl',
+                resolve: {
+                    teamEditInfo: function(superheroFactory){
+                        return teamFactory.getTeamById(teamId);
+                    }
+                }
+            });
         }
     
 }])

@@ -11,6 +11,9 @@ angular.module('mainModule').factory('teamFactory', ['$http', function($http){
         },
         deleteTeam : function(teamId){
         	return $http.delete("/superheroTeam/"+ teamId);
+        },
+        editTeam : function(team){
+        	return $http.put("/superheroTeam", team);
         }
     }
 }])

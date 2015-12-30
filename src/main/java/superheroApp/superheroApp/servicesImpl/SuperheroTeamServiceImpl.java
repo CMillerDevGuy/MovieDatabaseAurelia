@@ -46,8 +46,18 @@ public class SuperheroTeamServiceImpl implements SuperheroTeamService {
 		}
 	}
 
-	public void updateSuperheroTeam(SuperheroTeam superheroTeam) {
-		superheroTeamDao.updateSuperheroTeam(superheroTeam);
+	public void updateSuperheroTeam(SuperheroTeam superheroTeam) throws SuperheroTeamException {
+		if (superheroTeamValidation.validateSuperheroTeam(superheroTeam)) {
+			for(Superhero s : superheroTeam.getSuperheros()){
+				s.setOnTeam(true);
+				superheroDao.updateSuperhero(s);
+			}
+			Superhero teamLead = superheroTeam.getTeamLead();
+			teamLead.setOnTeam(true);
+			teamLead.setTeamLead(true);
+			superheroDao.updateSuperhero(teamLead);
+			superheroTeamDao.updateSuperheroTeam(superheroTeam);
+		}
 	}
 
 	public void deleteSuperheroTeam(Integer teamId) {
