@@ -22,6 +22,16 @@ public class SuperheroController {
 	public List<Superhero> getAllSuperheroes() {
 		return superheroService.getAllSuperheroes();
 	}
+	
+	@RequestMapping(value = "/superheroesNotOnTeam", method = RequestMethod.GET)
+	public List<Superhero> getSuperheroesNotOnTeam() {
+		return superheroService.getSuperheroesNotOnTeam();
+	}
+	
+	@RequestMapping(value = "/superheroesNotOnTeamAndNotTeamLead", method = RequestMethod.GET)
+	public List<Superhero> superheroesNotOnTeamAndNotTeamLead() {
+		return superheroService.getSuperheroesNotTeamLeadAndNotOnTeam();
+	}
 
 	@RequestMapping(value = "/superhero/{id}", method = RequestMethod.GET)
 	public Superhero getSuperheroById(@PathVariable Integer id) {

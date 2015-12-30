@@ -31,4 +31,12 @@ public class SuperheroServiceImpl implements SuperheroService {
 			superheroDao.addNewSuperhero(superhero);
 		}
 	}
+
+	public List<Superhero> getSuperheroesNotOnTeam() {
+		return superheroDao.getSuperheroesNotOnTeam();
+	}
+
+	public List<Superhero> getSuperheroesNotTeamLeadAndNotOnTeam() {
+		return superheroDao.getSuperheroesNotTeamLeadAndNotOnTeam();
+	}
 }

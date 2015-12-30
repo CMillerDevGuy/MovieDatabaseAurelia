@@ -34,4 +34,17 @@ public class SuperheroDaoImpl implements SuperheroDao {
 		return em.createQuery("SELECT s FROM Superhero s WHERE s.superheroId = :superheroId", Superhero.class)
 				.setParameter("superheroId", id).getSingleResult();
 	}
+
+	public List<Superhero> getSuperheroesNotOnTeam() {
+		return em.createQuery("SELECT s FROM Superhero s WHERE s.onTeam = false", Superhero.class).getResultList();
+	}
+
+	public void updateSuperhero(Superhero s) {
+		em.merge(s);
+		
+	}
+
+	public List<Superhero> getSuperheroesNotTeamLeadAndNotOnTeam() {
+		return em.createQuery("SELECT s FROM Superhero s WHERE s.onTeam = false AND s.teamLead = false", Superhero.class).getResultList();
+	}
 }

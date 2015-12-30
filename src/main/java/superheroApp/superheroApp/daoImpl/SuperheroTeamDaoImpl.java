@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import superheroApp.superheroApp.daos.SuperheroDao;
 import superheroApp.superheroApp.daos.SuperheroTeamDao;
+import superheroApp.superheroApp.entities.Superhero;
 import superheroApp.superheroApp.entities.SuperheroTeam;
 
 @Repository
@@ -44,7 +45,16 @@ public class SuperheroTeamDaoImpl implements SuperheroTeamDao {
 		em.merge(superheroTeam);
 	}
 
-	public void deleteSuperheroTeam(SuperheroTeam superheroTeam) {
+	public void deleteSuperheroTeam(Integer teamId) {
+		SuperheroTeam superheroTeam = getTeamById(teamId);
+		for(Superhero s : superheroTeam.getSuperheros()){
+			s.setOnTeam(false);
+			superheroDao.updateSuperhero(s);
+		}
+		Superhero teamLead = superheroTeam.getTeamLead();
+		teamLead.setOnTeam(false);
+		teamLead.setTeamLead(false);
+		superheroDao.updateSuperhero(teamLead);
 		em.remove(superheroTeam);
 
 	}

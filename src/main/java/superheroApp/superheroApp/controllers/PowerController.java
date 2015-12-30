@@ -23,6 +23,11 @@ public class PowerController {
 		return powerService.getAllPowers();
 	}
 
+	@RequestMapping(value = "/getSinglePower", method = RequestMethod.GET)
+	public Power getSinglePower() {
+		return powerService.getSinglePower();
+	}
+	
 	@RequestMapping(value = "/power", method = RequestMethod.POST)
 	public void addPower(@RequestBody Power power) throws Exception {
 		try {

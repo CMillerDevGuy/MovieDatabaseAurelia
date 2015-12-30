@@ -34,4 +34,8 @@ public class PowerServiceImpl implements PowerService {
 
 	}
 
+	public Power getSinglePower() {
+		return powerDao.getSinglePower();
+	}
+
 }

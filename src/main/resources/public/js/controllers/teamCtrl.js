@@ -6,7 +6,8 @@ angular.module('mainModule').controller('teamCtrl',['$scope', 'teamFactory', 'pu
     $scope.publicSupport = {};
     $scope.superheroes = [];
     $scope.teamLeadArray = [];
-    $scope.onTeamArray = [];
+    $scope.teamlessSuperheroes = [];
+    $scope.showOne = true;
     
     
     //Multi-select/Dropdown settings
@@ -21,26 +22,43 @@ angular.module('mainModule').controller('teamCtrl',['$scope', 'teamFactory', 'pu
     $scope.publicSupportData = publicSupportFactory.getPublicSupport().then(
         function(success){
             $scope.publicSupports = success.data;
+            if($scope.publicSupports.length == 0){
+                $scope.show = true;
+                $scope.showOne = false;
+            }
         },
         function(error){
             $scope.publicSupports = error;
         })
     
-    $scope.superheroData = superheroFactory.getSuperheroes().then(
+    /*$scope.superheroData = superheroFactory.getSuperheroes().then(
         function(success){
             $scope.superheroArray = success.data;
             for( var i = 0; i < $scope.superheroArray.length; i++){
                 if($scope.superheroArray[i].teamLead == false){
                     $scope.teamLeadArray.push($scope.superheroArray[i]);
                 }
-                if($scope.superheroArray[i].onTeam == false){
-                	$scope.onTeamArray.push($scope.superheroArray[i]);
-                }
             }
         },
         function(error){
             $scope.superheroArray = error;
-        })
+        })*/
+        
+      $scope.teamLeadData = superheroFactory.getSuperhoesNotOnTeamAndNotOnTeam().then(
+    		  function(success){
+    			  $scope.teamLeadArray = success.data;
+    		  }
+      )
+      
+      $scope.teamlessData = superheroFactory.getSuperhoesNotOnTeam().then(
+    		  function(success){
+    			  $scope.teamlessSuperheroes = success.data;
+    		  },
+    		  function(error){
+    			  console.log(error);
+    		  }
+    		  
+      )
     
     
     //On click functions
@@ -52,7 +70,8 @@ angular.module('mainModule').controller('teamCtrl',['$scope', 'teamFactory', 'pu
         teamFactory.addTeam(team).then(
             function(success) {
                 $scope.postResult = success;
-                $uibModalInstance.close();
+                $window.location.href = '/';
+                
             },
             function(error){
                 $scope.postResult = error;
@@ -67,6 +86,12 @@ angular.module('mainModule').controller('teamCtrl',['$scope', 'teamFactory', 'pu
     	else{
     		$scope.show = true;
     	}
+        if($scope.showOne == false){
+            $scope.showOne = true;
+        }
     }
     
+    $scope.closeModal = function (){
+    	$uibModalInstance.close();
+    }
 }])

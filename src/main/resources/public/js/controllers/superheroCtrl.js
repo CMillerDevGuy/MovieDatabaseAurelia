@@ -1,10 +1,11 @@
-angular.module('mainModule').controller('superheroCtrl',['$scope', 'superheroFactory', 'powerFactory', 'originFactory', '$uibModal', function($scope, superheroFactory, powerFactory, originFactory, $uibModal){
+angular.module('mainModule').controller('superheroCtrl',['$scope', 'superheroFactory', 'powerFactory', 'originFactory', '$uibModalInstance', function($scope, superheroFactory, powerFactory, originFactory, $uibModalInstance){
     
     //$scope variables
     $scope.superhero = {};
     $scope.origin = {};
     $scope.powersArray = [];
-    $scope.show = false;
+    $scope.showOne = true;
+    
     
     
     
@@ -27,6 +28,10 @@ angular.module('mainModule').controller('superheroCtrl',['$scope', 'superheroFac
     $scope.getOrigins = originFactory.getOrigin().then(
         function(success){
             $scope.origins = success.data;
+            if($scope.origins.length == 0){
+                $scope.show = true;
+                $scope.showOne = false;
+            }
         },
         function(error){
             $scope.origins = error;
@@ -51,11 +56,15 @@ angular.module('mainModule').controller('superheroCtrl',['$scope', 'superheroFac
         superheroFactory.addSuperhero(superhero).then(
             function(success) {
                 $scope.postResult = success;
-                $uibModalInstance.close();
+                $scope.closeModal();
             },
             function(error){
                 $scope.postResult = error;
             }
         );
+    }
+    
+    $scope.closeModal = function (){
+    	$uibModalInstance.close();
     }
 }])

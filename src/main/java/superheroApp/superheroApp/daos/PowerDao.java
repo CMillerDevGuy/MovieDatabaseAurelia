@@ -12,4 +12,6 @@ public interface PowerDao {
 
 	void updatePower(Power power);
 
+	Power getSinglePower();
+
 }

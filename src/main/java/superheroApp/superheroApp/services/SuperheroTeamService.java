@@ -13,7 +13,7 @@ public interface SuperheroTeamService {
 
 	void updateSuperheroTeam(SuperheroTeam superheroTeam);
 
-	void deleteSuperheroTeam(SuperheroTeam superheroTeam);
+	void deleteSuperheroTeam(Integer teamId);
 
 	SuperheroTeam getTeamById(Integer teamId);
 

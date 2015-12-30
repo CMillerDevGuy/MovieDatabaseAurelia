@@ -12,4 +12,10 @@ public interface SuperheroDao {
 
 	Superhero getSuperheroById(Integer id);
 
+	List<Superhero> getSuperheroesNotOnTeam();
+
+	void updateSuperhero(Superhero s);
+	
+	List<Superhero> getSuperheroesNotTeamLeadAndNotOnTeam();
+
 }

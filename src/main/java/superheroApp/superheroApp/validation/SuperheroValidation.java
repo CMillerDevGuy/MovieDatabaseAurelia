@@ -75,8 +75,9 @@ public class SuperheroValidation {
 	private boolean validateHeight(Superhero superhero) throws SuperheroException {
 		boolean result = false;
 		try {
+			String heightRegex = "^[3-9]{1}[']{1}([0]{1}[0-9]{1}|[1]{1}[0-1]{1})[\"]{1}$";
 			String height = superhero.getHeight();
-			if (height.length() < 4) {
+			if (!height.matches(heightRegex)) {
 				throw new SuperheroException("Not a valid height");
 			} else {
 				result = true;

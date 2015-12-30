@@ -3,7 +3,7 @@ angular.module('mainModule').controller('powerCtrl', ['$scope','powerFactory', '
     //$scope variables    
     $scope.power = {};
     $scope.powerType = {};    
-    $scope.show = false;
+    $scope.showOne = true;
     
     
     //Multi-select/Dropdown settings
@@ -14,6 +14,10 @@ angular.module('mainModule').controller('powerCtrl', ['$scope','powerFactory', '
     $scope.powerTypeData = powerTypeFactory.getPowerTypes().then(
         function(success){
             $scope.powerTypes = success.data;
+            if($scope.powerTypes.length == 0){
+                $scope.show = true;
+                $scope.showOne = false;
+            }
         },
         function(error){
             $scope.powerTypes = error;
@@ -38,7 +42,7 @@ angular.module('mainModule').controller('powerCtrl', ['$scope','powerFactory', '
         powerFactory.addPower(power).then(
             function(success) {
                 $scope.postResult = success;
-                $uibModalInstance.close();
+                $scope.closeModal();
             },
             function(error){
                 $scope.postResult = error;
@@ -53,5 +57,9 @@ angular.module('mainModule').controller('powerCtrl', ['$scope','powerFactory', '
     	else{
     		$scope.show = true;
     	}
+    }
+    
+    $scope.closeModal = function (){
+    	$uibModalInstance.close();
     }
 }])

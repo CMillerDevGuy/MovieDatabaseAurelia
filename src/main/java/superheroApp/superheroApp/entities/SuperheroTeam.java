@@ -80,7 +80,6 @@ public class SuperheroTeam {
 	}
 
 	public void setTeamLead(Superhero teamLead) {
-		teamLead.setTeamLead(true);
 		this.teamLead = teamLead;
 	}
 
@@ -89,10 +88,9 @@ public class SuperheroTeam {
 	}
 
 	public void setSuperheros(List<Superhero> superheros) {
-		for(Superhero s : superheros){
-			s.setOnTeam(true);
-		}
 		this.superheros = superheros;
 	}
+
+
 
 }

@@ -1,0 +1,17 @@
+{{power.powerName}}
+{{power.powerType.powerType}}
+{{power.powerDescription}}
+
+<button ng-click="model()">Model</button>
+
+<br/>
+<br/>
+<div>PowerName</div>
+<input type="text" ng-model="powerNameModel"/>
+<br/>
+<div>PowerType</div>
+<div ng-dropdown-multiselect="" options="powerTypes" selected-model="powerType" extra-settings="powerTypeSettings"></div><br/>
+<div>PowerDescription</div>
+<input type="text" ng-model="powerDescriptionModel"/>
+<br/>
+<button ng-click="updatePower()">Update</button>

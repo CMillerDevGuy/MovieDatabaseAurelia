@@ -8,6 +8,12 @@ angular.module('mainModule').factory('superheroFactory', ['$http', function($htt
         },
         getSuperheroById : function(superheroId){
         	return $http.get("/superhero/"+superheroId)
+        },
+        getSuperhoesNotOnTeam : function(){
+        	return $http.get("/superheroesNotOnTeam");
+        },
+        getSuperhoesNotOnTeamAndNotOnTeam : function(){
+        	return $http.get("/superheroesNotOnTeamAndNotTeamLead");
         }
     }
 }])

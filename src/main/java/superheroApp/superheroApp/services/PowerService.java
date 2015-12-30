@@ -12,5 +12,7 @@ public interface PowerService {
 	void addPower(Power power) throws PowerException;
 
 	void updatePower(Power power);
+	
+	Power getSinglePower();
 
 }

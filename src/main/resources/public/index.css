@@ -16,8 +16,8 @@ body {
 	max-width: 300px;
 }*/
 .center{
-	margin-left:40%;
-	margin-right:40%;
+	margin-left:10%;
+	margin-right:10%;
 	margin-top: 30px;
 	padding:10px;
 	/*border:solid;
@@ -28,3 +28,6 @@ body {
 	margin-bottom:10px;
 }*/)
 
+.modal_margin{
+	margin:10px;
+}

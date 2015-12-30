@@ -28,4 +28,9 @@ angular.module('mainModule').config(['$stateProvider','$urlRouterProvider', func
         templateUrl: 'templates/teamList.tpl.html',
         controller: 'mainCtrl'
     })
+    .state('viewPower',{
+    	url: '/viewPower',
+    	templateUrl: 'templates/viewPower.tpl.html',
+    	controller: 'viewPowerCtrl'
+    })
 }])

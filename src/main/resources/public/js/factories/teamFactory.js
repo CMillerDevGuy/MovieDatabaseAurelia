@@ -7,7 +7,10 @@ angular.module('mainModule').factory('teamFactory', ['$http', function($http){
             return $http.get("/superheroTeam");
         },
         getTeamById : function(teamId){
-            return $http.get("/superheroTeam/"+teamId)
+            return $http.get("/superheroTeam/"+teamId);
+        },
+        deleteTeam : function(teamId){
+        	return $http.delete("/superheroTeam/"+ teamId);
         }
     }
 }])

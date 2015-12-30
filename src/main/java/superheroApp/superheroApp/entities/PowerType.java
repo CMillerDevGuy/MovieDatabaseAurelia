@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "PowerType", schema = "Public")
+@Table(name = "power_type", schema = "Public")
 public class PowerType {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

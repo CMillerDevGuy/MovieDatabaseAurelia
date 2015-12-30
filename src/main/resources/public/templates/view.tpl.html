@@ -5,7 +5,7 @@
 <div ng-repeat="superhero in singleTeam.superheros">
 	<div><a ui-sref="viewSuperhero({id:superhero.superheroId})">{{superhero.superheroName}}</a></div>
 </div>
-
-
+{{singleTeam}}
+<button ng-click="deleteTeam(singleTeam.teamId)">Delete Team</button>
 <button><a ng-click="goBack()">Back</a></button>
 

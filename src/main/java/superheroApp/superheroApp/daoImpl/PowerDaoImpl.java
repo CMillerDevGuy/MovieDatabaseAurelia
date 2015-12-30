@@ -35,4 +35,8 @@ public class PowerDaoImpl implements PowerDao {
 		em.merge(power);
 
 	}
+
+	public Power getSinglePower() {
+		return em.createQuery("SELECT e FROM Power e where e.id = 1", Power.class).getSingleResult();
+	}
 }

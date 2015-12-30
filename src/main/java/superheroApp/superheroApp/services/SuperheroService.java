@@ -13,4 +13,7 @@ public interface SuperheroService {
 
 	Superhero getSuperheroById(Integer id);
 
+	List<Superhero> getSuperheroesNotOnTeam();
+	
+	List<Superhero> getSuperheroesNotTeamLeadAndNotOnTeam();
 }

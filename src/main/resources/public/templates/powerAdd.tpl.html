@@ -1,17 +1,19 @@
-<form>
+<form class="center">
     <div class="form-group">
         <label>Power Name</label>
         <input type="text" ng-model="power.powerName" class="form-control input" placeholder="Enter power name" autofocus />
     </div>
     <div class="form-group">
+        <label>Power Type</label>
     	<div ng-dropdown-multiselect="" options="powerTypes" selected-model="powerType" extra-settings="powerTypeSettings" ng-hide="show"></div>
     	<input type="text" ng-model="powerType.powerType" class="form-control input" placeholder="Enter power type" autofocus ng-show="show"/>
-    	<button ng-click="changeBoolean()" ng-show="show">Add existing power type</button>
-    	<button ng-click="changeBoolean()" ng-hide="show">Add new power type</button>
+    	<button class="btn btn-primary" ng-click="changeBoolean()" ng-show="show && showOne">Add existing power type</button>
+    	<button class="btn btn-primary" ng-click="changeBoolean()" ng-hide="show">Add new power type</button>
     </div>
     <div class="form-group">
         <label>Power Description</label>
         <input type="text" ng-model="power.powerDescription" class="form-control input" placeholder="Enter power description" autofocus />
     </div>
-    <button class="btn btn-primary" ng-click="addPower(power, powerType)">Add Power</button>
+    <button class="btn btn-success" ng-click="addPower(power, powerType)">Add Power</button>
+    <button class="btn btn-danger" ng-click="closeModal()">Cancel</button>
 </form>

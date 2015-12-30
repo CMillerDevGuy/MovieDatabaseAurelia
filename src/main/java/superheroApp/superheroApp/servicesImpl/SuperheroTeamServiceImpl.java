@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import superheroApp.superheroApp.daos.SuperheroDao;
 import superheroApp.superheroApp.daos.SuperheroTeamDao;
 import superheroApp.superheroApp.entities.Superhero;
 import superheroApp.superheroApp.entities.SuperheroTeam;
@@ -19,6 +20,9 @@ public class SuperheroTeamServiceImpl implements SuperheroTeamService {
 
 	@Autowired
 	SuperheroTeamValidation superheroTeamValidation;
+	
+	@Autowired
+	SuperheroDao superheroDao;
 
 	public SuperheroTeam getTeamById(Integer teamId) {
 		return superheroTeamDao.getTeamById(teamId);
@@ -31,10 +35,13 @@ public class SuperheroTeamServiceImpl implements SuperheroTeamService {
 	public void addNewSuperheroTeam(SuperheroTeam superheroTeam) throws SuperheroTeamException {
 		if (superheroTeamValidation.validateSuperheroTeam(superheroTeam)) {
 			for(Superhero s : superheroTeam.getSuperheros()){
-				superheroTeam.getSuperheros().remove(s);
 				s.setOnTeam(true);
-				superheroTeam.getSuperheros().add(s);
+				superheroDao.updateSuperhero(s);
 			}
+			Superhero teamLead = superheroTeam.getTeamLead();
+			teamLead.setOnTeam(true);
+			teamLead.setTeamLead(true);
+			superheroDao.updateSuperhero(teamLead);
 			superheroTeamDao.addNewSuperheroTeam(superheroTeam);
 		}
 	}
@@ -43,8 +50,8 @@ public class SuperheroTeamServiceImpl implements SuperheroTeamService {
 		superheroTeamDao.updateSuperheroTeam(superheroTeam);
 	}
 
-	public void deleteSuperheroTeam(SuperheroTeam superheroTeam) {
-		superheroTeamDao.deleteSuperheroTeam(superheroTeam);
+	public void deleteSuperheroTeam(Integer teamId) {
+		superheroTeamDao.deleteSuperheroTeam(teamId);
 	}
 
 }

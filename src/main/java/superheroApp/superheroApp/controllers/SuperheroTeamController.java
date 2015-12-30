@@ -42,8 +42,8 @@ public class SuperheroTeamController {
 		superheroTeamService.updateSuperheroTeam(superheroTeam);
 	}
 
-	@RequestMapping(value = "/superheroTeam", method = RequestMethod.DELETE)
-	public void deleteSuperheroTeam(@RequestBody SuperheroTeam superheroTeam) {
-		superheroTeamService.deleteSuperheroTeam(superheroTeam);
+	@RequestMapping(value = "/superheroTeam/{teamId}", method = RequestMethod.DELETE)
+	public void deleteSuperheroTeam(@PathVariable Integer teamId) {
+		superheroTeamService.deleteSuperheroTeam(teamId);
 	}
 }
