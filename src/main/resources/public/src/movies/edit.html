@@ -1,0 +1,38 @@
+<template>
+    <div class="container">
+        <div class= "panel panel-default">
+            <div class= "panel-heading">
+                <div class = "panel-title">
+                    <h3>Editing ${movie.movie}</h3>
+                </div>
+            </div>
+            <div class ="panel-body">
+                <form class ="form-horizontal" validate.bind = "validation" submit.trigger = "save()">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Title</label>
+                        <div class="col-sm-10">
+                            <input type="text" placeholder="Title" class="form-control" value.bind="movie.movie"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Release Year</label>
+                        <div class="col-sm-10">
+                            <input type="text" placeholder="Release Year" class="form-control" value.bind="movie.releaseYear"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Genre</label>
+                        <div class="col-sm-10">
+                            <input type="text" placeholder="Genre" class="form-control" value.bind="movie.genre"/>
+                            <!-- <select value.bind="movie.genre">
+                                <option disabled>Select Genre</option>
+                                <option repeat.for="genre of genres" model.bind="genre">${genre.genre}</option>
+                            </select> -->
+                        </div>
+                    </div>
+                    <input disabled.bind="!validation.result.isValid" type="submit" class="btn btn-primary" value="Save"/>
+                </form>
+            </div>
+        </div>
+    </div>
+</template>

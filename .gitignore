@@ -6,11 +6,15 @@
 *.project
 *.settings
 *.springBeans
+*.iml
 #################
 # Directories
 #################
 *.class
+node_modules/
+jspm_packages/
 .settings/
 target/
 bin/
+.idea/
 

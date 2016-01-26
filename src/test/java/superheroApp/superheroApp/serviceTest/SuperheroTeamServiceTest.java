@@ -1,9 +1,9 @@
-package superheroApp.superheroApp.serviceTest;
+/*package superheroApp.superheroApp.serviceTest;
 
 import org.junit.Before;
-/*import org.junit.Test;
+*//*import org.junit.Test;
 
-import superheroApp.superheroApp.entities.Superhero;*/
+import superheroApp.superheroApp.entities.Superhero;*//*
 import superheroApp.superheroApp.servicesImpl.SuperheroTeamServiceImpl;
 
 
@@ -15,10 +15,10 @@ public class SuperheroTeamServiceTest {
 		target = new SuperheroTeamServiceImpl();
 	}
 	
-	/*@Test
+	*//*@Test
 	public void testAddSuperheroTeamWithValidTeam(){
 		Superhero s = new Superhero();
 		s.
-	}*/
+	}*//*
 
-}
+}*/
